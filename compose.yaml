@@ -1,0 +1,12 @@
+services:
+  monero-node:
+    container_name: ${MONERO_CONTAINER}
+    image: shyym/monero-node:latest
+    restart: always
+    ports:
+      - 18080:18080
+      - 18081:18081
+    volumes:
+      - ${MONERO_PATH}/data:/data
+      - ${MONERO_PATH}/log:/log
+      - ${MONERO_PATH}/monerod.conf:/monerod.conf:ro
